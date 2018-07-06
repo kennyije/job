@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="lyw.dao.FinanceStatementRecordMapper">
+  <resultMap id="BaseResultMap" type="lyw.model.FinanceStatementRecord">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="busi_inst_no" jdbcType="VARCHAR" property="busiInstNo" />
+    <result column="busi_app_no" jdbcType="VARCHAR" property="busiAppNo" />
+    <result column="card_no" jdbcType="VARCHAR" property="cardNo" />
+    <result column="channel_code" jdbcType="VARCHAR" property="channelCode" />
+    <result column="channel_name" jdbcType="VARCHAR" property="channelName" />
+    <result column="tx_code" jdbcType="VARCHAR" property="txCode" />
+    <result column="tx_amount" jdbcType="VARCHAR" property="txAmount" />
+    <result column="req_time" jdbcType="TIMESTAMP" property="reqTime" />
+    <result column="busi_req_no" jdbcType="VARCHAR" property="busiReqNo" />
+    <result column="bat_seq_no" jdbcType="VARCHAR" property="batSeqNo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, busi_inst_no, busi_app_no, card_no, channel_code, channel_name, tx_code, tx_amount, 
+    req_time, busi_req_no, bat_seq_no
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from finance_statement_record
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from finance_statement_record
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="lyw.model.FinanceStatementRecord">
+    insert into finance_statement_record (id, busi_inst_no, busi_app_no, 
+      card_no, channel_code, channel_name, 
+      tx_code, tx_amount, req_time, 
+      busi_req_no, bat_seq_no)
+    values (#{id,jdbcType=VARCHAR}, #{busiInstNo,jdbcType=VARCHAR}, #{busiAppNo,jdbcType=VARCHAR}, 
+      #{cardNo,jdbcType=VARCHAR}, #{channelCode,jdbcType=VARCHAR}, #{channelName,jdbcType=VARCHAR}, 
+      #{txCode,jdbcType=VARCHAR}, #{txAmount,jdbcType=VARCHAR}, #{reqTime,jdbcType=TIMESTAMP}, 
+      #{busiReqNo,jdbcType=VARCHAR}, #{batSeqNo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="lyw.model.FinanceStatementRecord">
+    insert into finance_statement_record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="busiInstNo != null">
+        busi_inst_no,
+      </if>
+      <if test="busiAppNo != null">
+        busi_app_no,
+      </if>
+      <if test="cardNo != null">
+        card_no,
+      </if>
+      <if test="channelCode != null">
+        channel_code,
+      </if>
+      <if test="channelName != null">
+        channel_name,
+      </if>
+      <if test="txCode != null">
+        tx_code,
+      </if>
+      <if test="txAmount != null">
+        tx_amount,
+      </if>
+      <if test="reqTime != null">
+        req_time,
+      </if>
+      <if test="busiReqNo != null">
+        busi_req_no,
+      </if>
+      <if test="batSeqNo != null">
+        bat_seq_no,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="busiInstNo != null">
+        #{busiInstNo,jdbcType=VARCHAR},
+      </if>
+      <if test="busiAppNo != null">
+        #{busiAppNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNo != null">
+        #{cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="channelCode != null">
+        #{channelCode,jdbcType=VARCHAR},
+      </if>
+      <if test="channelName != null">
+        #{channelName,jdbcType=VARCHAR},
+      </if>
+      <if test="txCode != null">
+        #{txCode,jdbcType=VARCHAR},
+      </if>
+      <if test="txAmount != null">
+        #{txAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="reqTime != null">
+        #{reqTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="busiReqNo != null">
+        #{busiReqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="batSeqNo != null">
+        #{batSeqNo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="lyw.model.FinanceStatementRecord">
+    update finance_statement_record
+    <set>
+      <if test="busiInstNo != null">
+        busi_inst_no = #{busiInstNo,jdbcType=VARCHAR},
+      </if>
+      <if test="busiAppNo != null">
+        busi_app_no = #{busiAppNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNo != null">
+        card_no = #{cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="channelCode != null">
+        channel_code = #{channelCode,jdbcType=VARCHAR},
+      </if>
+      <if test="channelName != null">
+        channel_name = #{channelName,jdbcType=VARCHAR},
+      </if>
+      <if test="txCode != null">
+        tx_code = #{txCode,jdbcType=VARCHAR},
+      </if>
+      <if test="txAmount != null">
+        tx_amount = #{txAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="reqTime != null">
+        req_time = #{reqTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="busiReqNo != null">
+        busi_req_no = #{busiReqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="batSeqNo != null">
+        bat_seq_no = #{batSeqNo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="lyw.model.FinanceStatementRecord">
+    update finance_statement_record
+    set busi_inst_no = #{busiInstNo,jdbcType=VARCHAR},
+      busi_app_no = #{busiAppNo,jdbcType=VARCHAR},
+      card_no = #{cardNo,jdbcType=VARCHAR},
+      channel_code = #{channelCode,jdbcType=VARCHAR},
+      channel_name = #{channelName,jdbcType=VARCHAR},
+      tx_code = #{txCode,jdbcType=VARCHAR},
+      tx_amount = #{txAmount,jdbcType=VARCHAR},
+      req_time = #{reqTime,jdbcType=TIMESTAMP},
+      busi_req_no = #{busiReqNo,jdbcType=VARCHAR},
+      bat_seq_no = #{batSeqNo,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

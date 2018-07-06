@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="lyw.dao.FinanceBalanceofaccountRecordMapper">
+  <resultMap id="BaseResultMap" type="lyw.model.FinanceBalanceofaccountRecord">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="busi_inst_no_pay" jdbcType="VARCHAR" property="busiInstNoPay" />
+    <result column="busi_app_no_pay" jdbcType="VARCHAR" property="busiAppNoPay" />
+    <result column="card_no_pay" jdbcType="VARCHAR" property="cardNoPay" />
+    <result column="channel_code_pay" jdbcType="VARCHAR" property="channelCodePay" />
+    <result column="channel_name_pay" jdbcType="VARCHAR" property="channelNamePay" />
+    <result column="tx_code_pay" jdbcType="VARCHAR" property="txCodePay" />
+    <result column="tx_amount_pay" jdbcType="VARCHAR" property="txAmountPay" />
+    <result column="req_time_pay" jdbcType="TIMESTAMP" property="reqTimePay" />
+    <result column="busi_req_no_pay" jdbcType="VARCHAR" property="busiReqNoPay" />
+    <result column="bat_seq_no_pay" jdbcType="VARCHAR" property="batSeqNoPay" />
+    <result column="busi_inst_no_finance" jdbcType="VARCHAR" property="busiInstNoFinance" />
+    <result column="busi_app_no_finance" jdbcType="VARCHAR" property="busiAppNoFinance" />
+    <result column="card_no_finance" jdbcType="VARCHAR" property="cardNoFinance" />
+    <result column="channel_code_finance" jdbcType="VARCHAR" property="channelCodeFinance" />
+    <result column="channel_name_finance" jdbcType="VARCHAR" property="channelNameFinance" />
+    <result column="tx_code_finance" jdbcType="VARCHAR" property="txCodeFinance" />
+    <result column="tx_amount_finance" jdbcType="VARCHAR" property="txAmountFinance" />
+    <result column="req_time_finance" jdbcType="TIMESTAMP" property="reqTimeFinance" />
+    <result column="busi_req_no_finance" jdbcType="VARCHAR" property="busiReqNoFinance" />
+    <result column="bat_seq_no_finance" jdbcType="VARCHAR" property="batSeqNoFinance" />
+    <result column="balance_result" jdbcType="VARCHAR" property="balanceResult" />
+    <result column="balance_time" jdbcType="TIMESTAMP" property="balanceTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, busi_inst_no_pay, busi_app_no_pay, card_no_pay, channel_code_pay, channel_name_pay, 
+    tx_code_pay, tx_amount_pay, req_time_pay, busi_req_no_pay, bat_seq_no_pay, busi_inst_no_finance, 
+    busi_app_no_finance, card_no_finance, channel_code_finance, channel_name_finance, 
+    tx_code_finance, tx_amount_finance, req_time_finance, busi_req_no_finance, bat_seq_no_finance, 
+    balance_result, balance_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from finance_balanceofaccount_record
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from finance_balanceofaccount_record
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="lyw.model.FinanceBalanceofaccountRecord">
+    insert into finance_balanceofaccount_record (id, busi_inst_no_pay, busi_app_no_pay, 
+      card_no_pay, channel_code_pay, channel_name_pay, 
+      tx_code_pay, tx_amount_pay, req_time_pay, 
+      busi_req_no_pay, bat_seq_no_pay, busi_inst_no_finance, 
+      busi_app_no_finance, card_no_finance, channel_code_finance, 
+      channel_name_finance, tx_code_finance, tx_amount_finance, 
+      req_time_finance, busi_req_no_finance, bat_seq_no_finance, 
+      balance_result, balance_time)
+    values (#{id,jdbcType=VARCHAR}, #{busiInstNoPay,jdbcType=VARCHAR}, #{busiAppNoPay,jdbcType=VARCHAR}, 
+      #{cardNoPay,jdbcType=VARCHAR}, #{channelCodePay,jdbcType=VARCHAR}, #{channelNamePay,jdbcType=VARCHAR}, 
+      #{txCodePay,jdbcType=VARCHAR}, #{txAmountPay,jdbcType=VARCHAR}, #{reqTimePay,jdbcType=TIMESTAMP}, 
+      #{busiReqNoPay,jdbcType=VARCHAR}, #{batSeqNoPay,jdbcType=VARCHAR}, #{busiInstNoFinance,jdbcType=VARCHAR}, 
+      #{busiAppNoFinance,jdbcType=VARCHAR}, #{cardNoFinance,jdbcType=VARCHAR}, #{channelCodeFinance,jdbcType=VARCHAR}, 
+      #{channelNameFinance,jdbcType=VARCHAR}, #{txCodeFinance,jdbcType=VARCHAR}, #{txAmountFinance,jdbcType=VARCHAR}, 
+      #{reqTimeFinance,jdbcType=TIMESTAMP}, #{busiReqNoFinance,jdbcType=VARCHAR}, #{batSeqNoFinance,jdbcType=VARCHAR}, 
+      #{balanceResult,jdbcType=VARCHAR}, #{balanceTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="lyw.model.FinanceBalanceofaccountRecord">
+    insert into finance_balanceofaccount_record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="busiInstNoPay != null">
+        busi_inst_no_pay,
+      </if>
+      <if test="busiAppNoPay != null">
+        busi_app_no_pay,
+      </if>
+      <if test="cardNoPay != null">
+        card_no_pay,
+      </if>
+      <if test="channelCodePay != null">
+        channel_code_pay,
+      </if>
+      <if test="channelNamePay != null">
+        channel_name_pay,
+      </if>
+      <if test="txCodePay != null">
+        tx_code_pay,
+      </if>
+      <if test="txAmountPay != null">
+        tx_amount_pay,
+      </if>
+      <if test="reqTimePay != null">
+        req_time_pay,
+      </if>
+      <if test="busiReqNoPay != null">
+        busi_req_no_pay,
+      </if>
+      <if test="batSeqNoPay != null">
+        bat_seq_no_pay,
+      </if>
+      <if test="busiInstNoFinance != null">
+        busi_inst_no_finance,
+      </if>
+      <if test="busiAppNoFinance != null">
+        busi_app_no_finance,
+      </if>
+      <if test="cardNoFinance != null">
+        card_no_finance,
+      </if>
+      <if test="channelCodeFinance != null">
+        channel_code_finance,
+      </if>
+      <if test="channelNameFinance != null">
+        channel_name_finance,
+      </if>
+      <if test="txCodeFinance != null">
+        tx_code_finance,
+      </if>
+      <if test="txAmountFinance != null">
+        tx_amount_finance,
+      </if>
+      <if test="reqTimeFinance != null">
+        req_time_finance,
+      </if>
+      <if test="busiReqNoFinance != null">
+        busi_req_no_finance,
+      </if>
+      <if test="batSeqNoFinance != null">
+        bat_seq_no_finance,
+      </if>
+      <if test="balanceResult != null">
+        balance_result,
+      </if>
+      <if test="balanceTime != null">
+        balance_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="busiInstNoPay != null">
+        #{busiInstNoPay,jdbcType=VARCHAR},
+      </if>
+      <if test="busiAppNoPay != null">
+        #{busiAppNoPay,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNoPay != null">
+        #{cardNoPay,jdbcType=VARCHAR},
+      </if>
+      <if test="channelCodePay != null">
+        #{channelCodePay,jdbcType=VARCHAR},
+      </if>
+      <if test="channelNamePay != null">
+        #{channelNamePay,jdbcType=VARCHAR},
+      </if>
+      <if test="txCodePay != null">
+        #{txCodePay,jdbcType=VARCHAR},
+      </if>
+      <if test="txAmountPay != null">
+        #{txAmountPay,jdbcType=VARCHAR},
+      </if>
+      <if test="reqTimePay != null">
+        #{reqTimePay,jdbcType=TIMESTAMP},
+      </if>
+      <if test="busiReqNoPay != null">
+        #{busiReqNoPay,jdbcType=VARCHAR},
+      </if>
+      <if test="batSeqNoPay != null">
+        #{batSeqNoPay,jdbcType=VARCHAR},
+      </if>
+      <if test="busiInstNoFinance != null">
+        #{busiInstNoFinance,jdbcType=VARCHAR},
+      </if>
+      <if test="busiAppNoFinance != null">
+        #{busiAppNoFinance,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNoFinance != null">
+        #{cardNoFinance,jdbcType=VARCHAR},
+      </if>
+      <if test="channelCodeFinance != null">
+        #{channelCodeFinance,jdbcType=VARCHAR},
+      </if>
+      <if test="channelNameFinance != null">
+        #{channelNameFinance,jdbcType=VARCHAR},
+      </if>
+      <if test="txCodeFinance != null">
+        #{txCodeFinance,jdbcType=VARCHAR},
+      </if>
+      <if test="txAmountFinance != null">
+        #{txAmountFinance,jdbcType=VARCHAR},
+      </if>
+      <if test="reqTimeFinance != null">
+        #{reqTimeFinance,jdbcType=TIMESTAMP},
+      </if>
+      <if test="busiReqNoFinance != null">
+        #{busiReqNoFinance,jdbcType=VARCHAR},
+      </if>
+      <if test="batSeqNoFinance != null">
+        #{batSeqNoFinance,jdbcType=VARCHAR},
+      </if>
+      <if test="balanceResult != null">
+        #{balanceResult,jdbcType=VARCHAR},
+      </if>
+      <if test="balanceTime != null">
+        #{balanceTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="lyw.model.FinanceBalanceofaccountRecord">
+    update finance_balanceofaccount_record
+    <set>
+      <if test="busiInstNoPay != null">
+        busi_inst_no_pay = #{busiInstNoPay,jdbcType=VARCHAR},
+      </if>
+      <if test="busiAppNoPay != null">
+        busi_app_no_pay = #{busiAppNoPay,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNoPay != null">
+        card_no_pay = #{cardNoPay,jdbcType=VARCHAR},
+      </if>
+      <if test="channelCodePay != null">
+        channel_code_pay = #{channelCodePay,jdbcType=VARCHAR},
+      </if>
+      <if test="channelNamePay != null">
+        channel_name_pay = #{channelNamePay,jdbcType=VARCHAR},
+      </if>
+      <if test="txCodePay != null">
+        tx_code_pay = #{txCodePay,jdbcType=VARCHAR},
+      </if>
+      <if test="txAmountPay != null">
+        tx_amount_pay = #{txAmountPay,jdbcType=VARCHAR},
+      </if>
+      <if test="reqTimePay != null">
+        req_time_pay = #{reqTimePay,jdbcType=TIMESTAMP},
+      </if>
+      <if test="busiReqNoPay != null">
+        busi_req_no_pay = #{busiReqNoPay,jdbcType=VARCHAR},
+      </if>
+      <if test="batSeqNoPay != null">
+        bat_seq_no_pay = #{batSeqNoPay,jdbcType=VARCHAR},
+      </if>
+      <if test="busiInstNoFinance != null">
+        busi_inst_no_finance = #{busiInstNoFinance,jdbcType=VARCHAR},
+      </if>
+      <if test="busiAppNoFinance != null">
+        busi_app_no_finance = #{busiAppNoFinance,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNoFinance != null">
+        card_no_finance = #{cardNoFinance,jdbcType=VARCHAR},
+      </if>
+      <if test="channelCodeFinance != null">
+        channel_code_finance = #{channelCodeFinance,jdbcType=VARCHAR},
+      </if>
+      <if test="channelNameFinance != null">
+        channel_name_finance = #{channelNameFinance,jdbcType=VARCHAR},
+      </if>
+      <if test="txCodeFinance != null">
+        tx_code_finance = #{txCodeFinance,jdbcType=VARCHAR},
+      </if>
+      <if test="txAmountFinance != null">
+        tx_amount_finance = #{txAmountFinance,jdbcType=VARCHAR},
+      </if>
+      <if test="reqTimeFinance != null">
+        req_time_finance = #{reqTimeFinance,jdbcType=TIMESTAMP},
+      </if>
+      <if test="busiReqNoFinance != null">
+        busi_req_no_finance = #{busiReqNoFinance,jdbcType=VARCHAR},
+      </if>
+      <if test="batSeqNoFinance != null">
+        bat_seq_no_finance = #{batSeqNoFinance,jdbcType=VARCHAR},
+      </if>
+      <if test="balanceResult != null">
+        balance_result = #{balanceResult,jdbcType=VARCHAR},
+      </if>
+      <if test="balanceTime != null">
+        balance_time = #{balanceTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="lyw.model.FinanceBalanceofaccountRecord">
+    update finance_balanceofaccount_record
+    set busi_inst_no_pay = #{busiInstNoPay,jdbcType=VARCHAR},
+      busi_app_no_pay = #{busiAppNoPay,jdbcType=VARCHAR},
+      card_no_pay = #{cardNoPay,jdbcType=VARCHAR},
+      channel_code_pay = #{channelCodePay,jdbcType=VARCHAR},
+      channel_name_pay = #{channelNamePay,jdbcType=VARCHAR},
+      tx_code_pay = #{txCodePay,jdbcType=VARCHAR},
+      tx_amount_pay = #{txAmountPay,jdbcType=VARCHAR},
+      req_time_pay = #{reqTimePay,jdbcType=TIMESTAMP},
+      busi_req_no_pay = #{busiReqNoPay,jdbcType=VARCHAR},
+      bat_seq_no_pay = #{batSeqNoPay,jdbcType=VARCHAR},
+      busi_inst_no_finance = #{busiInstNoFinance,jdbcType=VARCHAR},
+      busi_app_no_finance = #{busiAppNoFinance,jdbcType=VARCHAR},
+      card_no_finance = #{cardNoFinance,jdbcType=VARCHAR},
+      channel_code_finance = #{channelCodeFinance,jdbcType=VARCHAR},
+      channel_name_finance = #{channelNameFinance,jdbcType=VARCHAR},
+      tx_code_finance = #{txCodeFinance,jdbcType=VARCHAR},
+      tx_amount_finance = #{txAmountFinance,jdbcType=VARCHAR},
+      req_time_finance = #{reqTimeFinance,jdbcType=TIMESTAMP},
+      busi_req_no_finance = #{busiReqNoFinance,jdbcType=VARCHAR},
+      bat_seq_no_finance = #{batSeqNoFinance,jdbcType=VARCHAR},
+      balance_result = #{balanceResult,jdbcType=VARCHAR},
+      balance_time = #{balanceTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
