@@ -1,6 +1,7 @@
 package dao;
 
-import lyw.model.FinanceStatementRecord;
+
+import model.FinanceStatementRecord;
 
 public interface FinanceStatementRecordMapper {
     int deleteByPrimaryKey(String id);

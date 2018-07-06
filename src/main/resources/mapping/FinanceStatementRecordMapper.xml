@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="lyw.dao.FinanceStatementRecordMapper">
-  <resultMap id="BaseResultMap" type="lyw.model.FinanceStatementRecord">
+<mapper namespace="dao.FinanceStatementRecordMapper">
+  <resultMap id="BaseResultMap" type="model.FinanceStatementRecord">
     <id column="id" jdbcType="VARCHAR" property="id" />
     <result column="busi_inst_no" jdbcType="VARCHAR" property="busiInstNo" />
     <result column="busi_app_no" jdbcType="VARCHAR" property="busiAppNo" />
@@ -28,7 +28,7 @@
     delete from finance_statement_record
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="lyw.model.FinanceStatementRecord">
+  <insert id="insert" parameterType="model.FinanceStatementRecord">
     insert into finance_statement_record (id, busi_inst_no, busi_app_no, 
       card_no, channel_code, channel_name, 
       tx_code, tx_amount, req_time, 
@@ -38,7 +38,7 @@
       #{txCode,jdbcType=VARCHAR}, #{txAmount,jdbcType=VARCHAR}, #{reqTime,jdbcType=TIMESTAMP}, 
       #{busiReqNo,jdbcType=VARCHAR}, #{batSeqNo,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="lyw.model.FinanceStatementRecord">
+  <insert id="insertSelective" parameterType="model.FinanceStatementRecord">
     insert into finance_statement_record
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -111,7 +111,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="lyw.model.FinanceStatementRecord">
+  <update id="updateByPrimaryKeySelective" parameterType="model.FinanceStatementRecord">
     update finance_statement_record
     <set>
       <if test="busiInstNo != null">
@@ -147,7 +147,7 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="lyw.model.FinanceStatementRecord">
+  <update id="updateByPrimaryKey" parameterType="model.FinanceStatementRecord">
     update finance_statement_record
     set busi_inst_no = #{busiInstNo,jdbcType=VARCHAR},
       busi_app_no = #{busiAppNo,jdbcType=VARCHAR},

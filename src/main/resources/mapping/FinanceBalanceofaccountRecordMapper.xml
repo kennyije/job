@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="lyw.dao.FinanceBalanceofaccountRecordMapper">
-  <resultMap id="BaseResultMap" type="lyw.model.FinanceBalanceofaccountRecord">
+<mapper namespace="dao.FinanceBalanceofaccountRecordMapper">
+  <resultMap id="BaseResultMap" type="model.FinanceBalanceofaccountRecord">
     <id column="id" jdbcType="VARCHAR" property="id" />
     <result column="busi_inst_no_pay" jdbcType="VARCHAR" property="busiInstNoPay" />
     <result column="busi_app_no_pay" jdbcType="VARCHAR" property="busiAppNoPay" />
@@ -43,7 +43,7 @@
     delete from finance_balanceofaccount_record
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="lyw.model.FinanceBalanceofaccountRecord">
+  <insert id="insert" parameterType="model.FinanceBalanceofaccountRecord">
     insert into finance_balanceofaccount_record (id, busi_inst_no_pay, busi_app_no_pay, 
       card_no_pay, channel_code_pay, channel_name_pay, 
       tx_code_pay, tx_amount_pay, req_time_pay, 
@@ -61,7 +61,7 @@
       #{reqTimeFinance,jdbcType=TIMESTAMP}, #{busiReqNoFinance,jdbcType=VARCHAR}, #{batSeqNoFinance,jdbcType=VARCHAR}, 
       #{balanceResult,jdbcType=VARCHAR}, #{balanceTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="lyw.model.FinanceBalanceofaccountRecord">
+  <insert id="insertSelective" parameterType="model.FinanceBalanceofaccountRecord">
     insert into finance_balanceofaccount_record
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -206,7 +206,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="lyw.model.FinanceBalanceofaccountRecord">
+  <update id="updateByPrimaryKeySelective" parameterType="model.FinanceBalanceofaccountRecord">
     update finance_balanceofaccount_record
     <set>
       <if test="busiInstNoPay != null">
@@ -278,7 +278,7 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="lyw.model.FinanceBalanceofaccountRecord">
+  <update id="updateByPrimaryKey" parameterType="model.FinanceBalanceofaccountRecord">
     update finance_balanceofaccount_record
     set busi_inst_no_pay = #{busiInstNoPay,jdbcType=VARCHAR},
       busi_app_no_pay = #{busiAppNoPay,jdbcType=VARCHAR},
