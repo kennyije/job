@@ -1,26 +1,19 @@
-import dao.FinanceBalanceofaccountRecordMapper;
-import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import java.io.IOException;
-import java.io.InputStream;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+import service.FinancebalanceofaccountRecordService;
 
 /**
  * Created by Lenovo on 2018/7/6.
  */
 public class JobMain {
+    private static Logger log = Logger.getLogger(FinancebalanceofaccountRecordService.class);
     public static void main(String args[]) {
-        InputStream inputStream = null;
-        try {
-            inputStream = Resources.getResourceAsStream("config/mybatis-config.xml");
-        } catch (IOException e) {
-            e.printStackTrace();
+        PropertyConfigurator.configure("log4j.properties");
+        FinancebalanceofaccountRecordService financebalanceofaccountRecordService = new FinancebalanceofaccountRecordService();
+        if(args != null && args.length > 0) {
+            log.info("jar包入参为: " + args[0]);
+            financebalanceofaccountRecordService.balanceOfAccount(args[0]);
         }
-        SqlSessionFactory sqlSessionFactory =new SqlSessionFactoryBuilder().build(inputStream);
-        // 是否自动提交
-        SqlSession session =sqlSessionFactory.openSession(true);
-        FinanceBalanceofaccountRecordMapper fm = session.getMapper(FinanceBalanceofaccountRecordMapper.class);
     }
 }

@@ -19,9 +19,10 @@
     </environments>
 
     <mappers>
-        <!-- <mapper resource="com/test/dao/UserMapper.xml"/>-->
+         <mapper resource="mapping/FinanceStatementRecordMapper.xml"/>
+         <mapper resource="mapping/FinanceBalanceofaccountRecordMapper.xml"/>
         <!-- Mapper扫描包，必须同目录同名称下-->
-        <package name="dao"/>
+        <!--<package name="dao"/>-->
     </mappers>
 
 </configuration>

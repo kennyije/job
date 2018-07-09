@@ -18,6 +18,14 @@
     id, busi_inst_no, busi_app_no, card_no, channel_code, channel_name, tx_code, tx_amount, 
     req_time, busi_req_no, bat_seq_no
   </sql>
+
+  <select id="selectByParams" parameterType="java.util.Date" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"></include>
+    FROM finance_statement_record
+    WHERE
+    req_time BETWEEN  #{param1} and #{param2}
+  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

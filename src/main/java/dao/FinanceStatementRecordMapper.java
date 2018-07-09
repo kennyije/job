@@ -1,7 +1,8 @@
 package dao;
-
-
 import model.FinanceStatementRecord;
+
+import java.util.Date;
+import java.util.List;
 
 public interface FinanceStatementRecordMapper {
     int deleteByPrimaryKey(String id);
@@ -15,4 +16,12 @@ public interface FinanceStatementRecordMapper {
     int updateByPrimaryKeySelective(FinanceStatementRecord record);
 
     int updateByPrimaryKey(FinanceStatementRecord record);
+
+    /**
+     *
+     * @param start
+     * @param end
+     * @return
+     */
+    List<FinanceStatementRecord> selectByParams(Date start, Date end);
 }

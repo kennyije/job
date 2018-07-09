@@ -3,6 +3,9 @@ package dao;
 
 import model.FinanceBalanceofaccountRecord;
 
+import java.util.Date;
+import java.util.List;
+
 public interface FinanceBalanceofaccountRecordMapper {
     int deleteByPrimaryKey(String id);
 
@@ -15,4 +18,5 @@ public interface FinanceBalanceofaccountRecordMapper {
     int updateByPrimaryKeySelective(FinanceBalanceofaccountRecord record);
 
     int updateByPrimaryKey(FinanceBalanceofaccountRecord record);
+
 }
